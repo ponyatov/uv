@@ -14,3 +14,9 @@ GitHub = https://github.com/ponyatov/uv.git
 
 .make:uv.mk
 
+libwrapper opencv
+
+About = "
+	Враппер для доступа к библиотеке OpenCV
+"
+
