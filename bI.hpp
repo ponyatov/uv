@@ -4,6 +4,10 @@
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
+#include <cstdio>
+#include <cmath>
+
+#include <direct.h>
 
 using namespace std;
 

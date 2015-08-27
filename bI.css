@@ -22,6 +22,8 @@ BODY {
 .op {
 	background: black;
 	color: white;
+	font-weight: bold;
+	font-size: 123%;
 }
 
 .dot {
@@ -38,6 +40,12 @@ BODY {
 .file {
 	background: black;
 	color: lightcyan;
+	font-weight: bold;
+}
+
+.module {
+	background: black;
+	color: yellow;
 	font-weight: bold;
 }
 

@@ -16,12 +16,15 @@
 %token <s> dotHTML
 %token <s> dotMAKE
 
+%token <s> MODULE
+
 %token <s> STDSYM
 %token <s> SYM
 
+%token <c> SPACES
+
 %%
 bI:
-	| bI CHAR		{ cout << $2; }
 	| bI STR		{ cout << "<span class=\"string\">" << *$2 << "</span>" ; }
 	| bI SYM		{ cout << "<span class=\"sym\">" << *$2 << "</span>" ; }
 	| bI STDSYM		{ cout << "<span class=\"stdsym\">" << *$2 << "</span>" ; }
@@ -48,5 +51,16 @@ bI:
 		mk << "\t$(CXX) $(CXXFLAGS) -o $@ lex.yy.c bI.tab.cpp bI.cpp\n"; 
 		mk << "\n\n";
 	}
+	| bI module
+	| bI SPACES		{ cout << " "; }
+	| bI CHAR		{ cout << $2; }
 ;
+
+module: 
+	  MODULE SPACES SYM {
+		cout << "<span class=\"module\">" << *$1 << ":" << *$3 << "</span>";
+		mkdir($3->c_str());
+	}
+;
+
 %%
