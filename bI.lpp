@@ -9,11 +9,18 @@
 %%
 
 \.html			{ yylval.s=new string(yytext); return dotHTML; }
+\.make:			{ yylval.s=new string(yytext); return dotMAKE; }
+
+https{0,1}:\/\/[a-z0-9\.\/]+	{ yylval.s=new string(yytext); return URL; }
+[a-z]+\.[a-z]+		{ yylval.s=new string(yytext); return FIL; }
 
 '[^']*'			{ yylval.s=new string(yytext); return STR; } /* string */
 \"[^\"]*\"		{ yylval.s=new string(yytext); return STR; } /* string */
 
 \=				{ yylval.c=yytext[0]; return EQ; }
+
+module					{ yylval.s=new string(yytext); return STDSYM; }
+[a-zA-Z_][a-zA-Z0-9_]*	{ yylval.s=new string(yytext); return SYM; }
 
 .				{ yylval.c=yytext[0]; return CHAR; }	
 %%

@@ -10,5 +10,7 @@ About = "
 	написано на языке Ы.
 "
 
-GitHub = url(https://github.com/ponyatov/uv.git)
+GitHub = https://github.com/ponyatov/uv.git
+
+.make:uv.mk
 

@@ -10,4 +10,3 @@ bI$(EXE): bI.lpp bI.ypp bI.cpp bI.hpp
 
 uv.html uv.mk : uv.bI bI$(EXE)
 	./bI$(EXE) < $< > uv.html
-	cat $< > uv.mk
