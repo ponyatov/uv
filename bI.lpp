@@ -19,6 +19,7 @@ https{0,1}:\/\/[a-z0-9\.\/]+	{ yylval.s=new string(yytext); return URL; }
 
 \=				{ yylval.c=yytext[0]; return EQ; }
 
+Title|Author|About|GitHub	{ yylval.s=new string(yytext); return STDSYM; }
 module|libwrapper		{ yylval.s=new string(yytext); return MODULE; }
 [a-zA-Z_][a-zA-Z0-9_]*	{ yylval.s=new string(yytext); return SYM; }
 
