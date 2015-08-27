@@ -1,0 +1,19 @@
+%{
+#include "bI.hpp"
+%}
+
+%option 8bit
+%option noyywrap
+%option yylineno
+
+%%
+
+\.html			{ yylval.s=new string(yytext); return dotHTML; }
+
+'[^']*'			{ yylval.s=new string(yytext); return STR; } /* string */
+\"[^\"]*\"		{ yylval.s=new string(yytext); return STR; } /* string */
+
+\=				{ yylval.c=yytext[0]; return EQ; }
+
+.				{ yylval.c=yytext[0]; return CHAR; }	
+%%

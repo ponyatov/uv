@@ -6,8 +6,8 @@ all: uv.mk
 bI$(EXE): bI.lpp bI.ypp bI.cpp bI.hpp
 	flex bI.lpp
 	bison -d bI.ypp
-	$(CXX) $(CXXFLAGS) -o $@ lex.yy.c bI.cpp 
+	$(CXX) $(CXXFLAGS) -o $@ lex.yy.c bI.tab.cpp bI.cpp 
 
-uv.html uv.mk : uv.bI bI$(EXE) 
-	cat $< > uv.html
+uv.html uv.mk : uv.bI bI$(EXE)
+	./bI$(EXE) < $< > uv.html
 	cat $< > uv.mk
